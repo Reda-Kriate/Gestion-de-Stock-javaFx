@@ -297,11 +297,13 @@ public class ProductController {
                 btnDel.getStyleClass().add("delete-button");
                 btnDel.setOnAction(e -> deleteProduct(p));
                 gridPane.add(btnDel, 3, row);
+                btnDel.setVisible(isAdmin());
 
                 Button btnEdit = new Button("Modifier");
                 btnEdit.getStyleClass().add("edit-button");
                 btnEdit.setOnAction(e -> prepareProductForEdit(p));
                 gridPane.add(btnEdit, 4, row);
+                btnEdit.setVisible(isAdmin());
 
                 row++;
             }
