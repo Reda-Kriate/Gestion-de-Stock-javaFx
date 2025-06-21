@@ -12,10 +12,6 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-/**
- * Contrôleur pour le formulaire d'ajout et de modification de produits.
- * Cette classe gère l'interface utilisateur du formulaire dans une fenêtre séparée.
- */
 public class ProductFormController {
 
     @FXML
@@ -44,17 +40,11 @@ public class ProductFormController {
     private boolean editMode = false;
     private boolean productSaved = false;
 
-    /**
-     * Initialise le contrôleur.
-     */
     @FXML
     private void initialize() {
         productDAO = new ProductDAOImpl();
     }
 
-    /**
-     * Configure le formulaire pour l'ajout d'un nouveau produit.
-     */
     public void setupForAdd() {
         titleLabelProForm.setText("Ajouter un produit");
         editMode = false;
@@ -63,11 +53,6 @@ public class ProductFormController {
         clearFields();
     }
 
-    /**
-     * Configure le formulaire pour la modification d'un produit existant.
-     * 
-     * @param productName Le nom du produit à modifier
-     */
     public void setupForEdit(String productName) {
         try {
             titleLabelProForm.setText("Modifier un produit");
@@ -86,9 +71,6 @@ public class ProductFormController {
         }
     }
 
-    /**
-     * Gère l'action du bouton Enregistrer.
-     */
     @FXML
     private void handleSave() {
         try {
@@ -146,51 +128,30 @@ public class ProductFormController {
         }
     }
 
-    /**
-     * Gère l'action du bouton Annuler.
-     */
     @FXML
     private void handleCancel() {
         closeDialog();
     }
 
-    /**
-     * Ferme la fenêtre de dialogue.
-     */
     private void closeDialog() {
         Stage stage = (Stage) cancelButtonProForm.getScene().getWindow();
         stage.close();
     }
 
-    /**
-     * Vérifie si un produit a été sauvegardé.
-     * 
-     * @return true si un produit a été sauvegardé, false sinon
-     */
     public boolean isProductSaved() {
         return productSaved;
     }
 
-    /**
-     * Efface les champs du formulaire.
-     */
     private void clearFields() {
         textFieldNameProForm.clear();
         textFieldPriceProForm.clear();
         textFieldQteProForm.clear();
     }
 
-    /**
-     * Vérifie si les entrées sont valides.
-     */
     private boolean isInputValid(String name, Double price, Integer quantity) {
         return name != null && !name.isEmpty() && price != null && price > 0 
                 && quantity != null && quantity > 0;
     }
-
-    /**
-     * Convertit une chaîne en double.
-     */
     private Double parseDouble(String text) {
         try {
             return Double.valueOf(text);
@@ -199,9 +160,6 @@ public class ProductFormController {
         }
     }
 
-    /**
-     * Convertit une chaîne en entier.
-     */
     private Integer parseInteger(String text) {
         try {
             return Integer.valueOf(text);
@@ -210,9 +168,6 @@ public class ProductFormController {
         }
     }
 
-    /**
-     * Affiche une boîte de dialogue d'alerte.
-     */
     private void showAlert(Alert.AlertType alertType, String title, String header, String content) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
@@ -221,9 +176,6 @@ public class ProductFormController {
         alert.showAndWait();
     }
 
-    /**
-     * Gère les erreurs de base de données.
-     */
     private void handleDatabaseError(Exception e) {
         System.err.println("Erreur de base de données: " + e.getMessage());
         e.printStackTrace();

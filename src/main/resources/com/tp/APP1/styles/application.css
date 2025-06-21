@@ -1,6 +1,6 @@
 /* Conteneur principal */
 .login-pane {
-    -fx-background-color: linear-gradient( #6a11cb 0%, #2575fc 100%);
+    -fx-background-color: linear-gradient( #6a11cb 0%, #6091e6 100%);
     -fx-padding: 20px;
 }
 
@@ -53,7 +53,7 @@
 
 /* Bouton de connexion */
 .login-button {
-    -fx-background-color: #5b8adb;
+    -fx-background-color: #2156c6;
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
@@ -521,6 +521,8 @@ HBox-cli-form {
 .deconexion-button-pro-view:hover {
     -fx-background-color: #c0392b;
 }
+
+
 
 
 

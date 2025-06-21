@@ -74,6 +74,12 @@
                     <padding>
                         <Insets top="18" right="0" bottom="0" left="0"/>
                     </padding>
+                    <Button text="Creer Utilisateur" onAction="#createUser" prefWidth="140" />
+                </VBox>
+                <VBox spacing="5" alignment="BOTTOM_LEFT">
+                    <padding>
+                        <Insets top="18" right="0" bottom="0" left="0"/>
+                    </padding>
                     <Button fx:id="validatePurchasesButton"
                             text="Valider les Achats"
                             onAction="#goToAchatValidation"

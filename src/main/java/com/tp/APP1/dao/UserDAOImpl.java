@@ -7,17 +7,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Implémentation de l'interface UserDAO qui réalise les opérations CRUD
- * sur la table des utilisateurs dans la base de données.
- */
 public class UserDAOImpl implements UserDAO {
 
     private static final String TABLE_NAME = "users";
 
-    /**
-     * {@inheritDoc}
-     */
+
     @Override
     public boolean add(User user) throws SQLException {
         String sql = "INSERT INTO " + TABLE_NAME + " (username, password, role) VALUES (?, ?, ?)";
@@ -34,9 +28,6 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean update(User user) throws SQLException {
         String sql = "UPDATE " + TABLE_NAME + " SET username = ?, password = ?, role = ? WHERE id = ?";
@@ -54,9 +45,6 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean delete(int id) throws SQLException {
         String sql = "DELETE FROM " + TABLE_NAME + " WHERE id = ?";
@@ -71,9 +59,6 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public User getById(int id) throws SQLException {
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE id = ?";
@@ -93,9 +78,6 @@ public class UserDAOImpl implements UserDAO {
         return null;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public User getByUsername(String username) throws SQLException {
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE username = ?";
@@ -115,9 +97,6 @@ public class UserDAOImpl implements UserDAO {
         return null;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public List<User> getAll() throws SQLException {
         String sql = "SELECT * FROM " + TABLE_NAME;
@@ -135,9 +114,6 @@ public class UserDAOImpl implements UserDAO {
         return users;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public User authenticate(String username, String password) throws SQLException {
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE username = ? AND password = ?";
@@ -158,9 +134,6 @@ public class UserDAOImpl implements UserDAO {
         return null;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean usernameExists(String username) throws SQLException {
         String sql = "SELECT COUNT(*) FROM " + TABLE_NAME + " WHERE username = ?";
@@ -181,13 +154,6 @@ public class UserDAOImpl implements UserDAO {
         return false;
     }
 
-    /**
-     * Méthode utilitaire pour extraire un objet User d'un ResultSet.
-     * 
-     * @param resultSet Le ResultSet contenant les données de l'utilisateur
-     * @return Un objet User avec les données extraites
-     * @throws SQLException En cas d'erreur SQL
-     */
     private User extractUserFromResultSet(ResultSet resultSet) throws SQLException {
         int id = resultSet.getInt("id");
         String username = resultSet.getString("username");

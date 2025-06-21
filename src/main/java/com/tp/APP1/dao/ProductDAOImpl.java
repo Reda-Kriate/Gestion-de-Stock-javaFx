@@ -8,19 +8,12 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Implémentation de l'interface ProductDAO qui réalise les opérations CRUD
- * sur la table des produits dans la base de données.
- */
 public class ProductDAOImpl implements ProductDAO {
 
 
 
     private static final String TABLE_NAME = "produits";
 
-    /**
-     * {@inheritDoc}
-     */
 
     @Override
     public boolean add(Product product) throws SQLException {
@@ -41,9 +34,6 @@ public class ProductDAOImpl implements ProductDAO {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean update(String oldName, Product product) throws SQLException {
         String sql = "UPDATE " + TABLE_NAME + " SET name = ?, prix = ?, quantite = ? WHERE name = ?";
@@ -61,9 +51,6 @@ public class ProductDAOImpl implements ProductDAO {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean delete(String name) throws SQLException {
         String sql = "DELETE FROM " + TABLE_NAME + " WHERE name = ?";
@@ -100,9 +87,6 @@ public class ProductDAOImpl implements ProductDAO {
         return null;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public List<Product> getAll() throws SQLException {
         String sql = "SELECT * FROM " + TABLE_NAME ;
@@ -120,9 +104,6 @@ public class ProductDAOImpl implements ProductDAO {
         return products;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public List<Product> searchByName(String searchTerm) throws SQLException {
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE name LIKE ?";
@@ -143,9 +124,6 @@ public class ProductDAOImpl implements ProductDAO {
         return products;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean exists(String name) throws SQLException {
         String sql = "SELECT COUNT(*) FROM " + TABLE_NAME + " WHERE name = ?";
@@ -166,13 +144,6 @@ public class ProductDAOImpl implements ProductDAO {
         return false;
     }
 
-    /**
-     * Méthode utilitaire pour extraire un objet Product d'un ResultSet.
-     * 
-     * @param resultSet Le ResultSet contenant les données du produit
-     * @return Un objet Product avec les données extraites
-     * @throws SQLException En cas d'erreur SQL
-     */
     private Product extractProductFromResultSet(ResultSet resultSet) throws SQLException {
         String name = resultSet.getString("name");
         double price = resultSet.getDouble("prix");

@@ -1,0 +1,52 @@
+/* Style du GridPane qui contient les champs */
+.grid-pane {
+    -fx-hgap: 10px;
+    -fx-vgap: 10px;
+    -fx-padding: 20px;
+}
+
+/* Style des Labels : gras et alignement à droite */
+.grid-pane > Label {
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_RIGHT;
+    -fx-min-width: 70px;
+}
+
+/* Champs texte, mot de passe et combo box */
+.text-field, .password-field, .combo-box {
+    -fx-pref-width: 250px;
+    -fx-padding: 6px 8px;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+/* Focus : bordure bleue et ombre légère */
+.text-field:focused, .password-field:focused, .combo-box:focused {
+    -fx-border-color: #3f51b5;
+    -fx-effect: dropshadow(gaussian, #3f51b5, 3, 0, 0, 0);
+}
+
+/* Boutons de la DialogPane */
+.dialog-pane .button {
+    -fx-background-color: #3f51b5;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 20px;
+    -fx-background-radius: 5px;
+}
+
+/* Hover sur bouton */
+.dialog-pane .button:hover {
+    -fx-background-color: #303f9f;
+}
+
+/* Bouton Annuler plus neutre */
+.dialog-pane .button.cancel-button {
+    -fx-background-color: #ccc;
+    -fx-text-fill: #333;
+}
+
+.dialog-pane .button.cancel-button:hover {
+    -fx-background-color: #bbb;
+}

@@ -13,6 +13,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class LoginClientController {
 
     @FXML private TextField emailField;
@@ -78,18 +80,20 @@ public class LoginClientController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/APP1/views/LoginView.fxml"));
             Parent root = loader.load();
 
-            Scene scene = new Scene(root,900,600);
+            Scene scene = new Scene(root, 900, 600);
             scene.getStylesheets().add(getClass().getResource("/com/tp/APP1/styles/application.css").toExternalForm());
 
-            Stage stage = (Stage) emailField.getScene().getWindow();
+            Stage stage = (Stage) emailField.getScene().getWindow(); // récupérer la fenêtre actuelle
             stage.setScene(scene);
             stage.setTitle("Connexion");
-            stage.show();
-
+            // Pas besoin d'appeler stage.show() si la fenêtre est déjà visible
         } catch (Exception e) {
             e.printStackTrace();
             showError("Erreur lors du retour à la page de connexion.");
         }
     }
+
+
+
 
 }

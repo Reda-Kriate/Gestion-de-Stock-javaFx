@@ -6,6 +6,7 @@ import com.tp.APP1.models.User;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.BorderPane;
@@ -16,6 +17,8 @@ import javafx.stage.Stage;
 public class StockManagementApp extends Application {
 
     private User authenticatedUser;
+
+
 
     @Override
     public void start(Stage primaryStage) {
@@ -63,11 +66,7 @@ public class StockManagementApp extends Application {
         }
     }
 
-    /**
-     * Affiche l'écran de connexion et attend que l'utilisateur se connecte.
-     *
-     * @return true si la connexion est réussie, false sinon
-     */
+
     private boolean showLoginScreen() {
         try {
             // Charger le fichier FXML de connexion
@@ -107,11 +106,7 @@ public class StockManagementApp extends Application {
         }
     }
 
-    /**
-     * Méthode principale qui lance l'application.
-     *
-     * @param args Arguments de ligne de commande (non utilisés)
-     */
+
     public static void main(String[] args) {
         launch(args);
     }

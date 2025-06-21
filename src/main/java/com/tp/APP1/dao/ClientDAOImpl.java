@@ -7,17 +7,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Implémentation de l'interface ClientDAO qui réalise les opérations CRUD
- * sur la table des clients dans la base de données.
- */
 public class ClientDAOImpl implements ClientDAO {
 
     private static final String TABLE_NAME = "clients";
 
-    /**
-     * {@inheritDoc}
-     */
+
     @Override
     public boolean add(Client client) throws SQLException {
         String sql = "INSERT INTO " + TABLE_NAME + " (name, email, phone, address) VALUES (?, ?, ?, ?)";
@@ -35,9 +29,6 @@ public class ClientDAOImpl implements ClientDAO {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean update(Client client) throws SQLException {
         String sql = "UPDATE " + TABLE_NAME + " SET name = ?, email = ?, phone = ?, address = ? WHERE id = ?";
@@ -56,9 +47,6 @@ public class ClientDAOImpl implements ClientDAO {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean delete(int id) throws SQLException {
         String sql = "DELETE FROM " + TABLE_NAME + " WHERE id = ?";
@@ -73,9 +61,6 @@ public class ClientDAOImpl implements ClientDAO {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public Client getById(int id) throws SQLException {
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE id = ?";
@@ -95,9 +80,6 @@ public class ClientDAOImpl implements ClientDAO {
         return null;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public Client getByName(String name) throws SQLException {
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE name = ?";
@@ -117,9 +99,6 @@ public class ClientDAOImpl implements ClientDAO {
         return null;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public List<Client> getAll() throws SQLException {
         String sql = "SELECT * FROM " + TABLE_NAME;
@@ -137,9 +116,6 @@ public class ClientDAOImpl implements ClientDAO {
         return clients;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public List<Client> searchByName(String name) throws SQLException {
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE name LIKE ?";
@@ -186,13 +162,6 @@ public class ClientDAOImpl implements ClientDAO {
 
 
 
-    /**
-     * Méthode utilitaire pour extraire un objet Client d'un ResultSet.
-     * 
-     * @param resultSet Le ResultSet contenant les données du client
-     * @return Un objet Client avec les données extraites
-     * @throws SQLException En cas d'erreur SQL
-     */
     private Client extractClientFromResultSet(ResultSet resultSet) throws SQLException {
         int id = resultSet.getInt("id");
         String name = resultSet.getString("name");

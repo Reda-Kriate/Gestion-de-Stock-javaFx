@@ -18,12 +18,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Contrôleur pour la gestion des clients dans l'interface utilisateur.
- * Cette classe gère les interactions entre l'interface graphique et les données
- * en utilisant le pattern DAO pour l'accès aux données.
- * Seuls les utilisateurs avec le rôle 'admin' peuvent gérer les clients.
- */
 public class ClientController {
 
     @FXML
@@ -36,17 +30,11 @@ public class ClientController {
 
     private User currentUser;
 
-    /**
-     * Constructeur par défaut qui initialise le DAO.
-     */
     public ClientController() {
         this.clientDAO = new ClientDAOImpl();
     }
 
-    /**
-     * Initialise le contrôleur. Cette méthode est appelée automatiquement
-     * après le chargement du fichier FXML.
-     */
+
     @FXML
     private void initialize() {
         System.out.println("Chargement des données clients depuis la base de données...");
@@ -55,27 +43,17 @@ public class ClientController {
 
     }
 
-    /**
-     * Définit l'utilisateur courant pour le contrôle d'accès.
-     * 
-     * @param user L'utilisateur actuellement connecté
-     */
+
     public void setCurrentUser(User user) {
         this.currentUser = user;
     }
 
-    /**
-     * Vérifie si l'utilisateur courant a le rôle admin.
-     * 
-     * @return true si l'utilisateur est admin, false sinon
-     */
+
     private boolean isAdmin() {
         return currentUser != null && "admin".equals(currentUser.getRole());
     }
 
-    /**
-     * Charge et affiche tous les clients dans le GridPane.
-     */
+
     @FXML
     public void loadClients() {
         try {
@@ -100,11 +78,6 @@ public class ClientController {
         }
     }
 
-    /**
-     * Affiche les clients dans le GridPane.
-     * 
-     * @param clients Liste des clients à afficher
-     */
     private void displayClientsInGrid(List<Client> clients) {
         // Nettoyer le GridPane
         gridPane.getChildren().clear();
@@ -169,10 +142,6 @@ public class ClientController {
         }
     }
 
-    /**
-     * Ouvre une fenêtre de dialogue pour ajouter un nouveau client.
-     * Cette action n'est disponible que pour les administrateurs.
-     */
     @FXML
     public void addClient() {
         if (!isAdmin()) {
@@ -217,12 +186,6 @@ public class ClientController {
         }
     }
 
-    /**
-     * Supprime un client de la base de données.
-     * Cette action n'est disponible que pour les administrateurs.
-     * 
-     * @param clientId L'identifiant du client à supprimer
-     */
     private void deleteClient(int clientId) {
         if (!isAdmin()) {
             showAlert(Alert.AlertType.WARNING, "Accès refusé", "Permission insuffisante", 
@@ -265,12 +228,6 @@ public class ClientController {
         }
     }
 
-    /**
-     * Ouvre une fenêtre de dialogue pour modifier un client existant.
-     * Cette action n'est disponible que pour les administrateurs.
-     * 
-     * @param clientId L'identifiant du client à modifier
-     */
     private void prepareClientForEdit(int clientId) {
         if (!isAdmin()) {
             showAlert(Alert.AlertType.WARNING, "Accès refusé", "Permission insuffisante", 
@@ -314,9 +271,6 @@ public class ClientController {
         }
     }
 
-    /**
-     * Affiche une boîte de dialogue d'alerte.
-     */
     private void showAlert(Alert.AlertType alertType, String title, String header, String content) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
@@ -325,16 +279,11 @@ public class ClientController {
         alert.showAndWait();
     }
 
-    /**
-     * Efface les champs de texte.
-     */
     private void clearInputFields() {
         textFieldName.clear();
     }
 
-    /**
-     * Gère les erreurs de base de données.
-     */
+
     private void handleDatabaseError(Exception e) {
         System.err.println("Erreur de base de données: " + e.getMessage());
         e.printStackTrace();
@@ -343,9 +292,6 @@ public class ClientController {
                 "Détails: " + e.getMessage());
     }
 
-    /**
-     * Retourne à la vue des produits.
-     */
     @FXML
     private void backToProducts() {
         try {

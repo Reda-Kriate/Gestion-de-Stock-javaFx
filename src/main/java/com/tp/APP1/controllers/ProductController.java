@@ -85,6 +85,54 @@ public class ProductController {
         validatePurchasesButton.setVisible(isAdmin());
 
     }
+    @FXML
+    private void createUser() {
+        javafx.scene.control.Dialog<User> dlg = new javafx.scene.control.Dialog<>();
+        dlg.setTitle("Créer utilisateur");
+        javafx.scene.control.ButtonType ok = new javafx.scene.control.ButtonType("Créer", javafx.scene.control.ButtonBar.ButtonData.OK_DONE);
+        dlg.getDialogPane().getButtonTypes().addAll(ok, javafx.scene.control.ButtonType.CANCEL);
+
+        javafx.scene.layout.GridPane g = new javafx.scene.layout.GridPane();
+        g.setHgap(10);
+        g.setVgap(10);
+        g.setPadding(new javafx.geometry.Insets(20));
+
+        TextField u = new TextField();
+        u.setPromptText("Nom");
+        PasswordField p = new PasswordField();
+        p.setPromptText("Mot de passe");
+        javafx.scene.control.ComboBox<String> cb = new javafx.scene.control.ComboBox<>(
+                javafx.collections.FXCollections.observableArrayList("client", "admin")
+        );
+        cb.setValue("client");
+
+        g.add(new javafx.scene.control.Label("Nom:"), 0, 0);
+        g.add(u, 1, 0);
+        g.add(new javafx.scene.control.Label("Pass:"), 0, 1);
+        g.add(p, 1, 1);
+        g.add(new javafx.scene.control.Label("Rôle:"), 0, 2);
+        g.add(cb, 1, 2);
+
+        dlg.getDialogPane().setContent(g);
+        javafx.application.Platform.runLater(u::requestFocus);
+
+        dlg.setResultConverter(btn -> {
+            if (btn == ok) return new User(u.getText(), p.getText(), cb.getValue());
+            return null;
+        });
+        dlg.getDialogPane().getStylesheets().add(getClass().getResource("/com/tp/APP1/styles/AjouterUser.css").toExternalForm());
+        dlg.getDialogPane().getStyleClass().add("dialog-pane");
+        g.getStyleClass().add("grid-pane");
+        dlg.showAndWait().ifPresent(user -> {
+            try {
+                new UserDAOImpl().add(user);
+                showAlert(Alert.AlertType.INFORMATION, "Succès", null, "Utilisateur créé.");
+            } catch (SQLException e) {
+                handleDatabaseError(e);
+            }
+        });
+
+    }
 
     private void updatePendingNotification() {
         if (!isAdmin()) {

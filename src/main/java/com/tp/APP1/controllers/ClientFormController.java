@@ -45,17 +45,11 @@ public class ClientFormController {
     private boolean editMode = false;
     private boolean clientSaved = false;
 
-    /**
-     * Initialise le contrôleur.
-     */
     @FXML
     private void initialize() {
         clientDAO = new ClientDAOImpl();
     }
 
-    /**
-     * Configure le formulaire pour l'ajout d'un nouveau client.
-     */
     public void setupForAdd() {
         titleLabelCliForm.setText("Ajouter un client");
         editMode = false;
@@ -64,11 +58,6 @@ public class ClientFormController {
         clearFields();
     }
 
-    /**
-     * Configure le formulaire pour la modification d'un client existant.
-     * 
-     * @param clientId L'identifiant du client à modifier
-     */
     public void setupForEdit(int clientId) {
         try {
             titleLabelCliForm.setText("Modifier un client");
@@ -88,9 +77,6 @@ public class ClientFormController {
         }
     }
 
-    /**
-     * Gère l'action du bouton Enregistrer.
-     */
     @FXML
     private void handleSave() {
         try {
@@ -135,34 +121,21 @@ public class ClientFormController {
         }
     }
 
-    /**
-     * Gère l'action du bouton Annuler.
-     */
     @FXML
     private void handleCancel() {
         closeDialog();
     }
 
-    /**
-     * Ferme la fenêtre de dialogue.
-     */
     private void closeDialog() {
         Stage stage = (Stage) cancelButtonCliForm.getScene().getWindow();
         stage.close();
     }
 
-    /**
-     * Vérifie si un client a été sauvegardé.
-     * 
-     * @return true si un client a été sauvegardé, false sinon
-     */
+
     public boolean isClientSaved() {
         return clientSaved;
     }
 
-    /**
-     * Efface les champs du formulaire.
-     */
     private void clearFields() {
         textFieldNameCliForm.clear();
         textFieldEmailCliForm.clear();
@@ -170,17 +143,11 @@ public class ClientFormController {
         textFieldAddressCliForm.clear();
     }
 
-    /**
-     * Vérifie si les entrées sont valides.
-     * Seul le nom est obligatoire.
-     */
     private boolean isInputValid(String name) {
         return name != null && !name.isEmpty();
     }
 
-    /**
-     * Affiche une boîte de dialogue d'alerte.
-     */
+
     private void showAlert(Alert.AlertType alertType, String title, String header, String content) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
@@ -189,9 +156,7 @@ public class ClientFormController {
         alert.showAndWait();
     }
 
-    /**
-     * Gère les erreurs de base de données.
-     */
+
     private void handleDatabaseError(Exception e) {
         System.err.println("Erreur de base de données: " + e.getMessage());
         e.printStackTrace();
