@@ -238,6 +238,7 @@
 /* ========== BOUTONS ========== */
 .button {
     -fx-background-color: #0077cc;
+
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-background-radius: 6;
@@ -257,7 +258,10 @@
     -fx-background-color: #c9302c;
 }
 #productAttent{
-    -fx-background-color: #142660;
+    -fx-background-color: #c87d27;
+}
+#validatePurchasesButton{
+    -fx-background-color: #c87d27;
 }
 .reject-button {
     -fx-background-color: #e53935;

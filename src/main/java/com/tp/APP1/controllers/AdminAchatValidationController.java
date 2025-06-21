@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 public class AdminAchatValidationController {
 
@@ -152,7 +153,9 @@ public class AdminAchatValidationController {
 
             // Ajouter la feuille de style à la scène existante
             scene.getStylesheets().add(getClass().getResource("/com/tp/APP1/styles/application.css").toExternalForm());
-
+            Stage stage = (Stage) scene.getWindow();
+            stage.setWidth(1350);  // largeur souhaitée
+            stage.setHeight(700);  // hauteur souhaitée
         } catch (Exception e) {
             e.printStackTrace();
             // Ou gérer l’erreur proprement

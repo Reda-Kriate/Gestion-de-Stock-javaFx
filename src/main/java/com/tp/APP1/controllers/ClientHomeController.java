@@ -26,6 +26,7 @@ public class ClientHomeController {
     @FXML private TableColumn<Product, Double> priceColumn;
     @FXML private TableColumn<Product, Integer> quantityColumn;
     @FXML private TableColumn<Product, Void> actionColumn;
+    @FXML private Label welcomeLabel;
 
     private Client currentClient;
     private ProductDAO productDAO = new ProductDAOImpl();
@@ -36,8 +37,10 @@ public class ClientHomeController {
 
     public void setCurrentClient(Client client) {
         this.currentClient = client;
+        welcomeLabel.setText("Bienvenue " + client.getName() + " !");
         loadProducts();
     }
+
 
     private void loadProducts() {
         try {

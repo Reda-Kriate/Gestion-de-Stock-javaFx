@@ -64,4 +64,26 @@ public class AchatDAOImpl implements AchatDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public int countNoValidateAchat() throws SQLException {
+        int countAchat = 0;
+
+        String sql = "SELECT COUNT(*) FROM purchases WHERE status = 'en_attente'";
+
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                countAchat = rs.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return countAchat;
+    }
+
 }

@@ -32,6 +32,8 @@ public class ClientFormController {
 
     @FXML
     private TextField textFieldAddressCliForm;
+    @FXML
+    private TextField textFieldPasswordCliForm;
 
     @FXML
     private Button saveButtonCliForm;
@@ -71,6 +73,7 @@ public class ClientFormController {
                 textFieldEmailCliForm.setText(client.getEmail());
                 textFieldPhoneCliForm.setText(client.getPhone());
                 textFieldAddressCliForm.setText(client.getAddress());
+                textFieldPasswordCliForm.setText(client.getPassword());
             }
         } catch (SQLException e) {
             handleDatabaseError(e);
@@ -84,9 +87,10 @@ public class ClientFormController {
             String email = textFieldEmailCliForm.getText();
             String phone = textFieldPhoneCliForm.getText();
             String address = textFieldAddressCliForm.getText();
+            String password = textFieldPasswordCliForm.getText();
 
             if (isInputValid(name)) {
-                Client client = new Client(name, email, phone, address);
+                Client client = new Client(name, email, phone, address, password);
 
                 if (editMode) {
                     // Mode modification

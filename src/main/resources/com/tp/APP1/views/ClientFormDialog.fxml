@@ -34,6 +34,10 @@
         <Label text="Adresse:" />
         <TextField fx:id="textFieldAddressCliForm" prefWidth="350" />
     </VBox>
+    <VBox spacing="5" styleClass="VBox-cli-form">
+        <Label text="Password:" />
+        <TextField fx:id="textFieldPasswordCliForm" prefWidth="350" />
+    </VBox>
 
     <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="HBox-cli-form">
         <Button fx:id="cancelButtonCliForm" text="Annuler" onAction="#handleCancel" prefWidth="100" />

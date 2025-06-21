@@ -14,7 +14,7 @@ public class ClientDAOImpl implements ClientDAO {
 
     @Override
     public boolean add(Client client) throws SQLException {
-        String sql = "INSERT INTO " + TABLE_NAME + " (name, email, phone, address) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO " + TABLE_NAME + " (name, email, phone, address,password) VALUES (?, ?, ?, ?, ?)";
         
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -23,6 +23,7 @@ public class ClientDAOImpl implements ClientDAO {
             statement.setString(2, client.getEmail());
             statement.setString(3, client.getPhone());
             statement.setString(4, client.getAddress());
+            statement.setString(5, client.getPassword());
             
             int rowsInserted = statement.executeUpdate();
             return rowsInserted > 0;

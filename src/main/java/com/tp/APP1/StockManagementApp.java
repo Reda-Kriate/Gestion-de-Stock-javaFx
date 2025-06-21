@@ -39,7 +39,7 @@ public class StockManagementApp extends Application {
             controller.setCurrentUser(authenticatedUser);
 
             // Créer la scène
-            Scene scene = new Scene(root, 900, 600);
+            Scene scene = new Scene(root, 1200, 700);
 
             // Ajouter la feuille de style CSS
             scene.getStylesheets().add(getClass().getResource("/com/tp/APP1/styles/application.css").toExternalForm());

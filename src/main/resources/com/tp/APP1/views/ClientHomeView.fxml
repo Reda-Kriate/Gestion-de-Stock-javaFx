@@ -10,7 +10,7 @@
             <padding>
                 <Insets top="20" right="20" bottom="20" left="20"/>
             </padding>
-            <Label text="Bienvenue !" styleClass="lable-client-login"/>
+            <Label fx:id="welcomeLabel" styleClass="lable-client-login"/>
             <Button text="Déconnexion" styleClass="deconexion-button-pro-view" onAction="#logout" prefWidth="100" />
 
 

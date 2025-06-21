@@ -27,11 +27,12 @@ public class Client {
      * @param phone   Le numéro de téléphone du client
      * @param address L'adresse du client
      */
-    public Client(String name, String email, String phone, String address) {
+    public Client(String name, String email, String phone, String address, String password) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.address = address;
+        this.password = password;
     }
 
     public String getPassword() {

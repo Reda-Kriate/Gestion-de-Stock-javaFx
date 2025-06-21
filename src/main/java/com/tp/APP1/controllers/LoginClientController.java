@@ -80,7 +80,7 @@ public class LoginClientController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/APP1/views/LoginView.fxml"));
             Parent root = loader.load();
 
-            Scene scene = new Scene(root, 900, 600);
+            Scene scene = new Scene(root, 1350, 700);
             scene.getStylesheets().add(getClass().getResource("/com/tp/APP1/styles/application.css").toExternalForm());
 
             Stage stage = (Stage) emailField.getScene().getWindow(); // récupérer la fenêtre actuelle

@@ -23,7 +23,7 @@
             <HBox spacing="15" alignment="CENTER_LEFT">
                 <ImageView fx:id="roleImageViewProduct" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../images/client_icon.svg" />
+                        <Image url="@../images/client_icon.png" />
                     </image>
                 </ImageView>
                 <VBox>
@@ -47,22 +47,38 @@
                     <padding>
                         <Insets top="18" right="0" bottom="0" left="0"/>
                     </padding>
-                    <Button text="Rechercher" onAction="#loadProducts" prefWidth="100" />
+                    <Button text="Rechercher" onAction="#loadProducts" prefWidth="100"
+                            style="-fx-background-color: #660fc5; -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0.5, 0, 1);"/>
                 </VBox>
 
                 <VBox spacing="5" alignment="BOTTOM_LEFT">
                     <padding>
                         <Insets top="18" right="0" bottom="0" left="0"/>
                     </padding>
-                    <Button text="Ajouter" onAction="#addProduct" prefWidth="100" />
+                    <Button fx:id="reintialiserbutton" text="Réinitialiser" onAction="#initialize" prefWidth="100"
+                            style="-fx-background-color: #660fc5; -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0.5, 0, 1);" />
                 </VBox>
 
                 <VBox spacing="5" alignment="BOTTOM_LEFT">
                     <padding>
                         <Insets top="18" right="0" bottom="0" left="0"/>
                     </padding>
-                    <Button fx:id="reintialiserbutton" text="Réinitialiser" onAction="#initialize" prefWidth="100" />
+                    <Button text="Ajouter" onAction="#addProduct" prefWidth="100"
+                            style="-fx-background-color: #660fc5; -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0.5, 0, 1);"/>
                 </VBox>
+
 
                 <VBox spacing="5" alignment="BOTTOM_LEFT">
                     <padding>
@@ -74,7 +90,7 @@
                     <padding>
                         <Insets top="18" right="0" bottom="0" left="0"/>
                     </padding>
-                    <Button text="Creer Utilisateur" onAction="#createUser" prefWidth="140" />
+                    <Button fx:id="creerUt" text="Creer Utilisateur" onAction="#createUser" prefWidth="140"  />
                 </VBox>
                 <VBox spacing="5" alignment="BOTTOM_LEFT">
                     <padding>
@@ -86,6 +102,11 @@
                             prefWidth="150"
                             visible="false" />
                 </VBox>
+                <Label fx:id="pendingCountAchatLabel"
+                       text="0"
+
+                       style="-fx-background-color: #c87d27; -fx-text-fill: white; -fx-padding: 2 6 2 6; -fx-background-radius: 10;"
+                       layoutX="180" layoutY="8" />
 
                 <VBox spacing="5" alignment="BOTTOM_LEFT">
                     <padding>
@@ -96,12 +117,12 @@
                     <padding>
                         <Insets top="18" right="0" bottom="0" left="0"/>
                     </padding>
-                    <Button fx:id="productAttent" text="Produits en attente" onAction="#loadPendingProducts" prefWidth="140" />
+                    <Button fx:id="productAttent" text="Valider les Produits" onAction="#loadPendingProducts" prefWidth="140" />
                 </VBox>
                 <Label fx:id="pendingCountLabel"
                        text="0"
 
-                       style="-fx-background-color: #142660; -fx-text-fill: white; -fx-padding: 2 6 2 6; -fx-background-radius: 10;"
+                       style="-fx-background-color: #c87d27; -fx-text-fill: white; -fx-padding: 2 6 2 6; -fx-background-radius: 10;"
                        layoutX="180" layoutY="8" />
 
                 <VBox spacing="5" alignment="BOTTOM_LEFT">

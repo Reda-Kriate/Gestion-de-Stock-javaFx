@@ -44,11 +44,7 @@ public class AuthenticationController {
         // Configuration des événements
         loginButton.setOnAction(event -> login());
     }
-    private Consumer<User> onLoginSuccess;
 
-    public void setOnLoginSuccess(Consumer<User> onLoginSuccess) {
-        this.onLoginSuccess = onLoginSuccess;
-    }
     @FXML
     private void login() {
         String username = usernameField.getText();

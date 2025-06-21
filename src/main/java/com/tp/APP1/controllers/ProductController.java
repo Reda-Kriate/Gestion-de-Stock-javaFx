@@ -1,10 +1,7 @@
 
 package com.tp.APP1.controllers;
 
-import com.tp.APP1.dao.ProductDAO;
-import com.tp.APP1.dao.ProductDAOImpl;
-import com.tp.APP1.dao.UserDAO;
-import com.tp.APP1.dao.UserDAOImpl;
+import com.tp.APP1.dao.*;
 import com.tp.APP1.models.Product;
 import com.tp.APP1.models.User;
 import javafx.application.Platform;
@@ -49,7 +46,11 @@ public class ProductController {
     @FXML
     private Label pendingCountLabel;
     @FXML
+    private Label pendingCountAchatLabel;
+    @FXML
     private Button validatePurchasesButton;
+    @FXML
+    private Button creerUt;
 
 
     public String getStatus() {
@@ -77,12 +78,13 @@ public class ProductController {
         this.currentUser = user;
         welcomeLabelproview.setText("Bienvenue " + user.getUsername() + " !");
         clientsButtonProView.setVisible(isAdmin());
-        reintialiserbutton.setVisible(isAdmin());
         productAttent.setVisible(isAdmin());
         updateRoleSpecificUI();
         deferOrApplyRoleStyle();
         updatePendingNotification();
+        updatePendingNotificationAchat();
         validatePurchasesButton.setVisible(isAdmin());
+        creerUt.setVisible(isAdmin());
 
     }
     @FXML
@@ -139,18 +141,39 @@ public class ProductController {
             pendingCountLabel.setVisible(false);
             return;
         }
+
         try {
             List<Product> pending = productDAO.getByStatus("en_attente");
             int count = pending.size();
 
-            if (count > 0) {
-                pendingCountLabel.setText(String.valueOf(count));
-                pendingCountLabel.setVisible(true);
+            pendingCountLabel.setText(String.valueOf(count));
+            pendingCountLabel.setVisible(true); // Toujours visible, même si 0
+
+        } catch (SQLException e) {
+            pendingCountLabel.setVisible(false); // En cas d’erreur, on le cache
+            handleDatabaseError(e);
+        }
+    }
+
+
+    private void updatePendingNotificationAchat() {
+        if (!isAdmin()) {
+            pendingCountAchatLabel.setVisible(false);
+            return;
+        }
+        try {
+            AchatDAO AchatDAO = new AchatDAOImpl();
+            int pending = AchatDAO.countNoValidateAchat();
+
+
+            if (pending > 0) {
+                pendingCountAchatLabel.setText(String.valueOf(pending));
+                pendingCountAchatLabel.setVisible(true);
             } else {
-                pendingCountLabel.setVisible(false);
+                pendingCountAchatLabel.setVisible(false);
             }
         } catch (SQLException e) {
-            pendingCountLabel.setVisible(false);
+            pendingCountAchatLabel.setVisible(false);
             handleDatabaseError(e);
         }
     }
@@ -158,12 +181,12 @@ public class ProductController {
     private void updateRoleSpecificUI() {
         if (isAdmin()) {
             // Set admin-specific UI elements
-            roleImageViewProduct.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/tp/APP1/images/admin_icon.svg"))));
+            roleImageViewProduct.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/tp/APP1/images/admin_icon.png"))));
             roleLabelviewpro.setText("Rôle: Administrateur");
             roleDescriptionLabel.setText("En tant qu'administrateur, vous pouvez gérer les produits, les clients et les utilisateurs ainsi que les Achats.");
         } else {
             // Set client-specific UI elements
-            roleImageViewProduct.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/tp/APP1/images/client_icon.svg"))));
+            roleImageViewProduct.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/tp/APP1/images/client_icon.png"))));
             roleLabelviewpro.setText("Rôle: User");
             roleDescriptionLabel.setText("En tant que User, vous pouvez consulter et Ajouter les produits.");
         }
@@ -209,11 +232,9 @@ public class ProductController {
         clearInputFields();
         loadProducts();
         updatePendingNotification();
+        updatePendingNotificationAchat();
 
-        // On cache le bouton "Valider Achats" tant qu'on n'a pas le rôle
-        if (validatePurchasesButton != null) {
-            validatePurchasesButton.setVisible(false);
-        }
+
     }
 
     @FXML
@@ -251,7 +272,7 @@ public class ProductController {
     }
 
     private void displayProductsInGrid(List<Product> products) {
-        if (isAdmin()) {
+//        if (isAdmin()) {
             gridPane.getChildren().clear();
             // En-têtes
             String[] headers = {"Nom", "Prix", "Quantité"};
@@ -284,39 +305,41 @@ public class ProductController {
 
                 row++;
             }
-        } else {
-            gridPane.getChildren().clear();
 
-            String[] headers = {"Nom", "Prix", "Quantité"};
-            for (int i = 0; i < headers.length; i++) {
-                Label hdr = new Label(headers[i]);
-                hdr.getStyleClass().add("column-header");
-                gridPane.add(hdr, i, 0);
-            }
-            int row = 1;
-            for (Product p : products) {
-                Label name = new Label(p.getName());
-                Label price = new Label(String.valueOf(p.getPrice()));
-                Label qty = new Label(String.valueOf(p.getStock()));
-
-                name.getStyleClass().add("data-row");
-                price.getStyleClass().add("data-row");
-                qty.getStyleClass().add("data-row");
-
-                gridPane.add(name, 0, row);
-                gridPane.add(price, 1, row);
-                gridPane.add(qty, 2, row);
-
-
-                row++;
-            }
-        }
+//        else {
+//            gridPane.getChildren().clear();
+//
+//            String[] headers = {"Nom", "Prix", "Quantité"};
+//            for (int i = 0; i < headers.length; i++) {
+//                Label hdr = new Label(headers[i]);
+//                hdr.getStyleClass().add("column-header");
+//                gridPane.add(hdr, i, 0);
+//            }
+//            int row = 1;
+//            for (Product p : products) {
+//                Label name = new Label(p.getName());
+//                Label price = new Label(String.valueOf(p.getPrice()));
+//                Label qty = new Label(String.valueOf(p.getStock()));
+//
+//                name.getStyleClass().add("data-row");
+//                price.getStyleClass().add("data-row");
+//                qty.getStyleClass().add("data-row");
+//
+//                gridPane.add(name, 0, row);
+//                gridPane.add(price, 1, row);
+//                gridPane.add(qty, 2, row);
+//
+//
+//                row++;
+//            }
+//        }
     }
 
     @FXML
     public void addProduct() {
         loadProductDialog(null);
         updatePendingNotification();
+        updatePendingNotificationAchat();
     }
 
     private void deleteProduct(Product product) {
@@ -479,6 +502,7 @@ public class ProductController {
                             "Produit refusé avec succès.");
                     loadPendingProducts();
                     updatePendingNotification();
+                    updatePendingNotificationAchat();
                 } else {
                     showAlert(Alert.AlertType.ERROR, "Erreur", null,
                             "Impossible de refuser le produit.");
@@ -512,6 +536,7 @@ public class ProductController {
             }
         }
         updatePendingNotification();
+        updatePendingNotificationAchat();
     }
 
     @FXML
@@ -526,7 +551,7 @@ public class ProductController {
             Parent root = loader.load();
 
             // Crée une nouvelle scène avec le root chargé
-            Scene newScene = new Scene(root, 900, 600);
+            Scene newScene = new Scene(root, 1350, 700);
 
             // Applique la feuille de style CSS ici
             newScene.getStylesheets().add(getClass().getResource("/com/tp/APP1/styles/AchatsValidationStyle.css").toExternalForm());
