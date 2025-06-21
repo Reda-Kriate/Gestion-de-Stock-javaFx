@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.tp.APP1.controllers.ClientHomeController" styleClass="borderPane-Client-home">
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <Label text="Bienvenue !" styleClass="lable-client-login"/>
+            <Button text="Déconnexion" styleClass="deconexion-button-pro-view" onAction="#logout" prefWidth="100" />
+
+
+            <TableView fx:id="productTable" prefHeight="400" styleClass="table-login-client">
+                <columns>
+                    <TableColumn fx:id="nameColumn" text="Nom" />
+                    <TableColumn fx:id="priceColumn" text="Prix" />
+                    <TableColumn fx:id="quantityColumn" text="Quantité" />
+                    <TableColumn fx:id="actionColumn" text="Action" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

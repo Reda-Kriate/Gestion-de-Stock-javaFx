@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.tp.APP1.controllers.AdminAchatValidationController"
+            styleClass="admin-achat-view">
+
+    <top>
+        <Label text="Demandes d'Achat en Attente" styleClass="admin-achat-title" BorderPane.alignment="CENTER"/>
+
+    </top>
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+            <Button text="← Retour" onAction="#goBackToAdminView" />
+            <Label text="Demandes d'Achat en Attente" styleClass="admin-achat-title" />
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="achatTable" prefHeight="400" prefWidth="800" styleClass="admin-achat-table">
+            <columns>
+                <TableColumn fx:id="clientColumn" text="Client" prefWidth="150" styleClass="Client-Column"/>
+                <TableColumn fx:id="productColumn" text="Produit" prefWidth="150"/>
+                <TableColumn fx:id="quantityColumn" text="Quantité" prefWidth="100"/>
+                <TableColumn fx:id="statusColumn" text="Statut" prefWidth="100"/>
+                <TableColumn fx:id="actionColumn" text="Actions" prefWidth="300"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+</BorderPane>

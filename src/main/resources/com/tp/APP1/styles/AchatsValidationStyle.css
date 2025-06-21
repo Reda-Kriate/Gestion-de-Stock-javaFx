@@ -1,0 +1,65 @@
+/* Fond principal */
+.admin-achat-view {
+    -fx-background-color: #f9fbfd;
+    -fx-padding: 20;
+}
+
+/* Titre */
+.admin-achat-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Table */
+.admin-achat-table {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 10;
+    -fx-table-cell-border-color: #eee;
+    -fx-selection-bar: #d6eaff;
+}
+
+/* Colonnes */
+.admin-achat-table .column-header {
+    -fx-font-weight: bold;
+    -fx-background-color: #e6f0fa;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 6 10;
+    -fx-border-color: #d0d0d0;
+}
+
+/* Cellules */
+.admin-achat-table .table-cell {
+    -fx-padding: 6 10;
+    -fx-font-size: 14px;
+}
+
+/* Boutons d'action dans les colonnes */
+.table-button {
+    -fx-background-color: #2175ae;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 5 15;
+    -fx-cursor: hand;
+}
+
+.table-button:hover {
+    -fx-background-color: #1774b1;
+}
+
+/* Bouton de retour */
+.button {
+    -fx-background-color: #bdc3c7;
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 13px;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #95a5a6;
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.APP1.controllers.ClientFormController"
+      spacing="15" styleClass="containerCliForm" prefWidth="400" prefHeight="350">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label fx:id="titleLabelCliForm" text="Ajouter un client" styleClass="titleCliForm"/>
+
+    <VBox spacing="5" styleClass="VBox-cli-form">
+        <Label text="Nom du client:" />
+        <TextField fx:id="textFieldNameCliForm" prefWidth="350" />
+    </VBox>
+
+    <VBox spacing="5" styleClass="VBox-cli-form">
+        <Label text="Email:" />
+        <TextField fx:id="textFieldEmailCliForm" prefWidth="350" />
+    </VBox>
+
+    <VBox spacing="5" styleClass="VBox-cli-form">
+        <Label text="Téléphone:" />
+        <TextField fx:id="textFieldPhoneCliForm" prefWidth="350" />
+    </VBox>
+
+    <VBox spacing="5" styleClass="VBox-cli-form">
+        <Label text="Adresse:" />
+        <TextField fx:id="textFieldAddressCliForm" prefWidth="350" />
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="HBox-cli-form">
+        <Button fx:id="cancelButtonCliForm" text="Annuler" onAction="#handleCancel" prefWidth="100" />
+        <Button fx:id="saveButtonCliForm" text="Enregistrer" onAction="#handleSave" prefWidth="100" styleClass="edit-button" />
+    </HBox>
+</VBox>

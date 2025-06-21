@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.APP1.controllers.ProductFormController"
+      spacing="15" styleClass="containerProForm" prefWidth="400" prefHeight="300">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label fx:id="titleLabelProForm" text="Ajouter un produit" styleClass="titleProForm"/>
+
+    <VBox spacing="5" styleClass="Vbox-pro-form">
+        <Label text="Nom du produit:" />
+        <TextField fx:id="textFieldNameProForm" prefWidth="350" />
+    </VBox>
+
+    <VBox spacing="5" styleClass="Vbox-pro-form">
+        <Label text="Prix:" />
+        <TextField fx:id="textFieldPriceProForm" prefWidth="350" />
+    </VBox>
+
+    <VBox spacing="5" styleClass="Vbox-pro-form">
+        <Label text="Quantité:" />
+        <TextField fx:id="textFieldQteProForm" prefWidth="350" />
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="Hbox-pro-form">
+        <Button fx:id="cancelButtonProForm" text="Annuler" onAction="#handleCancel" prefWidth="100" />
+        <Button fx:id="saveButtonProForm" text="Enregistrer" onAction="#handleSave" prefWidth="100" styleClass="edit-button-Pro-form" />
+    </HBox>
+</VBox>

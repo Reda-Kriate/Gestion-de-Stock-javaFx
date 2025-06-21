@@ -1,0 +1,51 @@
+.borderPane-Client-home {
+    -fx-background-color: #9dc4ec;
+    -fx-padding: 20;
+}
+
+/* Titre "Bienvenue !" */
+.lable-client-login {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Bouton de déconnexion */
+.deconexion-button-pro-view {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 8 20;
+}
+
+.deconexion-button-pro-view:hover {
+    -fx-background-color: #c0392b;
+}
+
+/* TableView des produits */
+.table-login-client {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 10;
+    -fx-table-cell-border-color: #eee;
+    -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #3498db;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-size: 40px;
+    -fx-border-color: transparent transparent #2980b9 transparent;
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}

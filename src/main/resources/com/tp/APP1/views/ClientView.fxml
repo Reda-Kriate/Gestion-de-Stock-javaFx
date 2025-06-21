@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" styleClass="border-pane-client-view" fx:controller="com.tp.APP1.controllers.ClientController">
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="10" left="20"/>
+            </padding>
+
+            <Label text="Gestion des Clients" styleClass="title-client-view"/>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <padding>
+                    <Insets top="10" right="0" bottom="10" left="0"/>
+                </padding>
+
+                <VBox spacing="5">
+                    <Label text="Nom du client:" />
+                    <TextField fx:id="textFieldName" prefWidth="200" />
+                </VBox>
+
+                <VBox spacing="5" alignment="BOTTOM_LEFT">
+                    <padding>
+                        <Insets top="18" right="0" bottom="0" left="0"/>
+                    </padding>
+                    <Button text="Rechercher" onAction="#loadClients" prefWidth="100" styleClass="btn-search-client-view"/>
+                </VBox>
+
+                <VBox spacing="5" alignment="BOTTOM_LEFT">
+                    <padding>
+                        <Insets top="18" right="0" bottom="0" left="0"/>
+                    </padding>
+                    <Button text="Ajouter"    onAction="#addClient"    prefWidth="100" styleClass="btn-add-client-view"/>
+                </VBox>
+
+                <VBox spacing="5" alignment="BOTTOM_LEFT">
+                    <padding>
+                        <Insets top="18" right="0" bottom="0" left="0"/>
+                    </padding>
+                    <Button text="Réinitialiser" fx:id="reinitButton" onAction="#initialize" prefWidth="100" styleClass="btn-reinit-client-view"/>
+                </VBox>
+
+                <VBox spacing="5" alignment="BOTTOM_LEFT">
+                    <padding>
+                        <Insets top="18" right="0" bottom="0" left="0"/>
+                    </padding>
+                    <Button text="Retour aux Produits" onAction="#backToProducts" prefWidth="150" styleClass="btn-back-client-view"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Liste des clients" styleClass="subtitle-client-view"/>
+
+            <ScrollPane fitToWidth="true" prefHeight="500">
+                <content>
+                    <GridPane fx:id="gridPane" hgap="20" vgap="10" styleClass="grid-pane-client-view" />
+                </content>
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>

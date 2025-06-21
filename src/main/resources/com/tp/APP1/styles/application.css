@@ -1,0 +1,527 @@
+/* Conteneur principal */
+.login-pane {
+    -fx-background-color: linear-gradient( #6a11cb 0%, #2575fc 100%);
+    -fx-padding: 20px;
+}
+
+/* Titre principal */
+.login-title {
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 0 0 5px 0;
+}
+
+/* Sous-titre */
+.login-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: rgba(255, 255, 255, 0.85);
+    -fx-padding: 0 0 15px 0;
+}
+
+/* Formulaire (GridPane) */
+.login-form {
+    -fx-background-color: rgba(255,255,255,0.9);
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+    -fx-hgap: 10px;
+    -fx-vgap: 10px;
+}
+
+/* Labels du formulaire */
+.login-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+}
+
+/* Champs de saisie */
+.login-form .text-field,
+.login-form .password-field {
+    -fx-background-color: #f0f4f8;
+    -fx-background-radius: 4px;
+    -fx-border-color: #d1d9e6;
+    -fx-border-radius: 4px;
+    -fx-padding: 6px 8px;
+}
+
+.login-form .text-field:focused,
+.login-form .password-field:focused {
+    -fx-border-color: #2575fc;
+    -fx-background-color: #eef2f7;
+}
+
+/* Bouton de connexion */
+.login-button {
+    -fx-background-color: #5b8adb;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px;
+}
+
+
+/* ----------------------------------------
+   CLIENT VIEW – CONTENEUR RACINE
+   ---------------------------------------- */
+.border-pane-client-view {
+    /* fond léger pour la vue */
+    -fx-background-color: #82e3cb;
+}
+
+/* ----------------------------------------
+   TITRES
+   ---------------------------------------- */
+.title-client-view {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 0 0 10px 0;
+}
+
+.subtitle-client-view {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+    -fx-padding: 0 0 10px 0;
+}
+
+/* ----------------------------------------
+   TOOLBAR
+   ---------------------------------------- */
+.border-pane-client-view > .top > VBox > HBox {
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 6, 0, 0, 2);
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+
+/* ----------------------------------------
+   CHAMP DE RECHERCHE
+   ---------------------------------------- */
+#textFieldName {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ced6e0;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 6px 8px;
+}
+#textFieldName:focused {
+    -fx-border-color: #3498db;
+    -fx-background-color: #eef2f7;
+}
+
+/* ----------------------------------------
+   BOUTONS CLIENT VIEW
+   ---------------------------------------- */
+
+.btn-search-client-view {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+.btn-search-client-view:hover {
+    -fx-background-color: #2980b9;
+}
+
+.btn-add-client-view {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+}
+.btn-add-client-view:hover {
+    -fx-background-color: #27ae60;
+}
+
+.btn-reinit-client-view {
+    -fx-background-color: #f39c12;
+    -fx-text-fill: white;
+}
+.btn-reinit-client-view:hover {
+    -fx-background-color: #d68910;
+}
+
+.btn-back-client-view {
+    -fx-background-color: #7f8c8d;
+    -fx-text-fill: white;
+}
+.btn-back-client-view:hover {
+    -fx-background-color: #606b75;
+}
+
+/* Styles partagés */
+.btn-search-client-view,
+.btn-add-client-view,
+.btn-reinit-client-view,
+.btn-back-client-view {
+    -fx-font-weight: bold;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 2);
+    -fx-transition: background-color 0.2s ease, translateY 0.2s ease;
+}
+.btn-search-client-view:hover,
+.btn-add-client-view:hover,
+.btn-reinit-client-view:hover,
+.btn-back-client-view:hover {
+    -fx-translate-y: -1px;
+}
+.btn-search-client-view:pressed,
+.btn-add-client-view:pressed,
+.btn-reinit-client-view:pressed,
+.btn-back-client-view:pressed {
+    -fx-translate-y: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 2, 0, 0, 1);
+}
+
+/* ----------------------------------------
+   GRILLE DES CLIENTS
+   ---------------------------------------- */
+.grid-pane-client-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 12px;
+}
+.grid-pane-client-view .column-header {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-color: #f7f9fa;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 8px 10px;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 0 0 1 0;
+}
+.grid-pane-client-view .data-row {
+    -fx-padding: 6px 10px;
+    -fx-border-color: #ecf0f1;
+    -fx-border-width: 0 0 1 0;
+}
+.grid-pane-client-view .data-row:hover {
+    -fx-background-color: #f5f9fa;
+}
+
+/* ========== GLOBAL ========== */
+.border-prod-view {
+    -fx-background-color: #f4faff;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* ========== TITRE + EN-TÊTE ========== */
+.title-Pro-View {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0077cc;
+}
+
+.welcome-message-pro-view {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+.role-label-pro-view {
+    -fx-font-size: 13px;
+    -fx-text-fill: #666;
+}
+
+/* ========== BARRE D'ACTIONS ========== */
+.hbox-pro-view {
+    -fx-background-color: #e9f2fb;
+    -fx-padding: 10px;
+    -fx-border-color: #d0e4f5;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-background-radius: 8;
+}
+
+/* ========== BOUTONS ========== */
+.button {
+    -fx-background-color: #0077cc;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0.5, 0, 1);
+}
+
+.button:hover {
+    -fx-background-color: #005fa3;
+}
+
+.deconexion-button-pro-view {
+    -fx-background-color: #d9534f;
+}
+
+.deconexion-button-pro-view:hover {
+    -fx-background-color: #c9302c;
+}
+#productAttent{
+    -fx-background-color: #142660;
+}
+.reject-button {
+    -fx-background-color: #e53935;
+    -fx-text-fill: white;
+    -fx-padding: 4 10;
+    -fx-background-radius: 5;
+}
+
+
+/* ========== INPUTS ========== */
+.text-field, .text-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: #0077cc;
+    -fx-border-radius: 4;
+    -fx-padding: 4 6 4 6;
+}
+
+/* ========== TITRE SECTION CENTRALE ========== */
+.subtitle {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #004c8c;
+}
+
+.role-description {
+    -fx-font-size: 13px;
+    -fx-text-fill: #555;
+}
+
+/* ========== GRILLE DES PRODUITS ========== */
+.grid-pane {
+    -fx-padding: 10;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cce0f5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+
+/* Conteneur principal */
+.containerProForm {
+    -fx-background-color: #fafafa;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 5, 0.0, 0, 2);
+    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Label titre */
+#titleLabelProForm, .titleProForm {
+    -fx-font-size: 22px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #222;
+    -fx-padding: 0 0 12 0;
+}
+
+/* Labels internes */
+VBox-pro-form.Label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555;
+}
+
+/* TextFields ciblés par id */
+#textFieldNameProForm,
+#textFieldPriceProForm,
+#textFieldQteProForm {
+    -fx-background-color: white;
+    -fx-border-color: #bbb;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 6 10 6 10;
+    -fx-font-size: 14px;
+}
+
+#textFieldNameProForm:focused,
+#textFieldPriceProForm:focused,
+#textFieldQteProForm:focused {
+    -fx-border-color: #0078d7;
+    -fx-effect: dropshadow(gaussian, rgba(0,120,215,0.5), 5, 0, 0, 0);
+}
+
+/* Bouton Enregistrer avec styleClass personnalisée */
+#saveButtonProForm.edit-button-Pro-form {
+    -fx-background-color: #0078d7;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+#saveButtonProForm.edit-button-Pro-form:hover {
+    -fx-background-color: #005a9e;
+}
+
+/* Bouton Annuler */
+#cancelButtonProForm {
+    -fx-font-size: 14px;
+    -fx-padding: 6 14;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-background-color: #ddd;
+    -fx-text-fill: #333;
+    -fx-cursor: hand;
+}
+
+#cancelButtonProForm:hover {
+    -fx-background-color: #bbb;
+}
+
+/* HBox contenant les boutons */
+.Hbox-pro-form {
+    -fx-alignment: center-right;
+    -fx-spacing: 10;
+}
+
+/* Conteneur principal */
+.containerCliForm {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 2);
+    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Label titre */
+#titleLabelCliForm, .titleCliForm {
+    -fx-font-size: 22px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 0 0 15 0;
+}
+
+/* Labels dans les VBox internes */
+.VBox-cli-form.Label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555;
+}
+
+/* TextFields ciblés par id */
+#textFieldNameCliForm,
+#textFieldEmailCliForm,
+#textFieldPhoneCliForm,
+#textFieldAddressCliForm {
+    -fx-background-color: white;
+    -fx-border-color: #bbb;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 6 10 6 10;
+    -fx-font-size: 14px;
+}
+
+#textFieldNameCliForm:focused,
+#textFieldEmailCliForm:focused,
+#textFieldPhoneCliForm:focused,
+#textFieldAddressCliForm:focused {
+    -fx-border-color: #2980b9;
+    -fx-effect: dropshadow(gaussian, rgba(41,128,185,0.5), 5, 0, 0, 0);
+}
+
+/* Bouton Enregistrer avec styleClass edit-button */
+#saveButtonCliForm.edit-button {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+#saveButtonCliForm.edit-button:hover {
+    -fx-background-color: #1c5980;
+}
+
+/* Bouton Annuler */
+#cancelButtonCliForm {
+    -fx-font-size: 14px;
+    -fx-padding: 6 14;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-background-color: #ccc;
+    -fx-text-fill: #333;
+    -fx-cursor: hand;
+}
+
+#cancelButtonCliForm:hover {
+    -fx-background-color: #aaa;
+}
+
+/* HBox contenant les boutons */
+HBox-cli-form {
+    -fx-alignment: center-right;
+    -fx-spacing: 10;
+}
+
+
+
+.VBox-login-client {
+    -fx-background-color: #f0f4f8;
+    -fx-padding: 40;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4);
+}
+
+.label-login-client {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 20 0;
+}
+
+.text-login-client, .password-login-client {
+    -fx-background-color: white;
+    -fx-border-color: #3498db;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8 10;
+    -fx-font-size: 14px;
+    -fx-text-fill: #34495e;
+}
+
+.text-login-client:focused, .password-login-client:focused {
+    -fx-border-color: #2980b9;
+    -fx-background-color: #ecf0f1;
+}
+
+.button-login-client {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-padding: 10 30;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 5, 0, 0, 2);
+}
+
+.button-login-client:hover {
+    -fx-background-color: #2980b9;
+}
+
+.m-err-login-client {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0 0 0;
+}
+.deconexion-button-pro-view {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5;
+    -fx-padding: 8 16;
+}
+
+.deconexion-button-pro-view:hover {
+    -fx-background-color: #c0392b;
+}
+
+
+
+

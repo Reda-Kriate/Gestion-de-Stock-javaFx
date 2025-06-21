@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.tp.APP1.controllers.LoginClientController"
+      prefWidth="500" prefHeight="400" styleClass="VBox-login-client-page">
+    <Label text="Système de Gestion de Stock" styleClass="label1-login-client-page"/>
+    <Label text="Connexion Client " style="-fx-font-size: 20px; -fx-font-weight: bold;" styleClass="label-login-client-page"/>
+
+    <TextField fx:id="emailField" promptText="Email" maxWidth="250" styleClass="text-login-client-page"/>
+    <PasswordField fx:id="passwordField" promptText="Mot de passe" maxWidth="250" styleClass="password-login-client-page"/>
+
+    <Button text="Se connecter" onAction="#handleLogin" styleClass="button-login-client-page"/>
+    <Button text="Retour" onAction="#retourButton" styleClass="button-login-client-page"/>
+
+    <Label fx:id="errorLabel" textFill="red" visible="false" styleClass="m-err-login-client-page"/>
+</VBox>

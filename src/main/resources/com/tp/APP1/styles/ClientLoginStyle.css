@@ -1,0 +1,67 @@
+/* Contexte général */
+.VBox-login-client-page {
+    -fx-background-color: #baaae8;
+    -fx-pref-width: 450;
+    -fx-pref-height: 500;
+    -fx-padding: 40;
+    -fx-spacing: 20;
+    -fx-alignment: center;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 8, 0.2, 0, 2);
+}
+
+/* Titre principal */
+.label1-login-client-page {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Titre secondaire */
+.label-login-client-page {
+    -fx-font-size: 18px;
+    -fx-text-fill: #34495e;
+}
+
+/* Champs de texte */
+.text-login-client-page,
+.password-login-client-page {
+    -fx-pref-width: 280;
+    -fx-pref-height: 40;
+    -fx-font-size: 14px;
+    -fx-padding: 0 12;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-background-color: white;
+}
+
+.text-login-client-page:focused,
+.password-login-client-page:focused {
+    -fx-border-color: #3498db;
+    -fx-effect: dropshadow(two-pass-box, rgba(52,152,219,0.2), 6, 0, 0, 1);
+}
+
+/* Boutons */
+.button-login-client-page {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 6;
+    -fx-padding: 10 24;
+    -fx-cursor: hand;
+    -fx-min-width: 150;
+}
+
+.button-login-client-page:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Message d'erreur */
+.m-err-login-client-page {
+    -fx-text-fill: red;
+    -fx-font-size: 13px;
+    -fx-font-style: italic;
+}
